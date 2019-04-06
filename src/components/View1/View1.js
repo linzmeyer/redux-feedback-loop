@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/Header';
 
@@ -12,4 +13,4 @@ class View1 extends Component {
   }
 }
 
-export default View1;
+export default withRouter( View1 );
