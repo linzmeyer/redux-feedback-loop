@@ -36,5 +36,5 @@ function validate(input, type) {
 	// TODO: write validation for FLAG type
 }
 
-export default ( validate )
+export default ( validate );
 
