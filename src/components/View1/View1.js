@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
+
 import Header from '../Header/Header';
+import Review from '../Review/Review';
 
 class View1 extends Component {
 
@@ -22,10 +24,11 @@ class View1 extends Component {
 	//Click handler for Next button
 	nextView = () => {
 		console.log(this.state.newFeedback.feelingRating);
-
+		// user input validation
+		if (this.state.newFeedback.feelingRating === null) {
+			return;
+		}
 		// TODO: dispatch feelingRating to reducer
-
-		// TODO: send user to next view
 		this.props.history.push('/view2');
 	}
 
@@ -45,9 +48,11 @@ class View1 extends Component {
 					onChange={this.handleChange}
 				></input>
     		<button onClick={this.nextView} >Next</button>
+    		<Review />
       </div>
     );
   }
 }
 
-export default withRouter( View1 );
+// TODO: import connect and use here
+export default( View1 );
