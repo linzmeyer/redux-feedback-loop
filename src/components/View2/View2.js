@@ -6,7 +6,7 @@ import Review from '../Review/Review';
 
 import validate from '../../DRY_Functions/validate';
 
-// Parent <Route /> in <App />
+// Parent: <Route /> in <App />
 class View2 extends Component {
 
 	state = {
