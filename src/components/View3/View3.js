@@ -6,7 +6,7 @@ import Review from '../Review/Review';
 
 import validate from '../../DRY_Functions/validate';
 
-// Parent <Route /> in <App />
+// Parent: <Route /> in <App />
 class View3 extends Component {
 
 	state = {
@@ -39,7 +39,6 @@ class View3 extends Component {
 	}
 
   render() {
-
     return (
 			<div>
 				<Header />
@@ -49,7 +48,7 @@ class View3 extends Component {
 					placeholder="1-5"
 					min={ 1 }
 					max={ 5 }
-					type="number"
+					type="range"
 					name="supportRating"
 					onChange={ this.handleChange }
 				></input>
