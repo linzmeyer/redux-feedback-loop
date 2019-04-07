@@ -31,6 +31,14 @@ const lastPage = ( state = 'false', action ) => {
 	return state;
 }
 
+// Holds the values of all feedback values
+const review = ( state = {}, action ) => {
+	if ( action.type === 'SET_REVIEW' ) {
+		state = action.payload
+	}
+	return state;
+}
+
 const support = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_SUPPORT' ) {
 		return action.payload;
@@ -52,6 +60,7 @@ const storeInstance = createStore(
 		comment,
 		feeling,
 		lastPage,
+		review,
 		support,
 		understanding,
 	}),
