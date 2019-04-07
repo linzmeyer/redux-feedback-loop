@@ -6,11 +6,11 @@ import Review from '../Review/Review';
 
 import validate from '../../DRY_Functions/validate';
 
-// Parent <Route /> in <App />
+// Parent: <Route /> in <App />
 class View4 extends Component {
 
 	state = {
-		commentDetails: null
+		commentDetails: null,
 	}
 
 	handleChange = ( e ) => {
@@ -27,13 +27,16 @@ class View4 extends Component {
 			return;
 		}
 
-		// Create action for reducer
-		const action = {
-			type: 'SET_COMMENT',
-			payload: this.state.commentDetails
-		}
-		// Dispatch action payload to reducer
-		this.props.dispatch( action );
+		// Create action for comment reducer
+		const action1 = { type: 'SET_COMMENT', payload: this.state.commentDetails }
+		// Dispatch action payload to comment reducer
+		this.props.dispatch( action1 );
+
+		// Create action for comment reducer
+		const action2 = { type: 'SET_LAST_PAGE', payload: true }
+		// Dispatch action payload to comment reducer
+		this.props.dispatch( action2 );
+
 		// Change from current view to view2
 		this.props.history.push( '/view5' );
 	}
