@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Header.css';
 
 // Parents: <View1-5 />
 class Header extends Component {
 
 	renderHeader = () => {
-		if ( this.props.lastPage === true ) {
+		if ( this.props.reduxState.lastPage === true ) {
 			return ( <h1>Feedback!</h1> );
 		}
 		else {
@@ -27,4 +28,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapReduxStateToProps = reduxState => ({
+    reduxState
+});
+
+export default connect( mapReduxStateToProps )( Header );
