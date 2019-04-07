@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+// TODO: Make GET request
 
 class Admin extends Component {
   render() {
