@@ -17,8 +17,8 @@ class Home extends Component {
     return (
 			<div>
 				<nav>
-					<div className='navbar' onClick={this.linkToView1} >Start Feedback</div>
-					<div className='navbar' onClick={this.linkToAdmin} >Admin</div>
+					<div className='navbar' onClick={ this.linkToView1 } >Leave New Feedback</div>
+					<div className='navbar' onClick={ this.linkToAdmin } >Admin</div>
 				</nav>
 			</div>
     );
