@@ -7,7 +7,9 @@ import Header from '../Header/Header';
 class Admin extends Component {
 
 
-
+componentDidMount = () => {
+	this.props.getAllFeedback();
+}
 
   render() {
     return (

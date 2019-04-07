@@ -53,16 +53,19 @@ class App extends Component {
 			// Route for view5 is passing POST request to <View5 /> so it can
 			// be passed to the submit button in <Review />.
       <Router>
-      	<Route exact path='/admin' component={ Admin } />
+      	<Route exact path='/admin'
+					render={
+						(props) => <Admin {...props} getAllFeedback={this.getAllFeedback}/>
+					}
+      	/>
 				<Route exact path='/' component={ Home } />
       	<Route exact path='/view1' component={ View1 } />
       	<Route exact path='/view2' component={ View2 } />
       	<Route exact path='/view3' component={ View3 } />
       	<Route exact path='/view4' component={ View4 } />
-      	<Route
-					exact path='/view5'
+      	<Route exact path='/view5'
 					render={
-						( props ) => <View5 { ...props } postFeedback={ this.postFeedback } />
+						(props) => <View5 {...props} postFeedback={this.postFeedback}/>
 					}
 				/>
       </Router>
