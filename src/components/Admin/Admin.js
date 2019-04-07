@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import Header from '../Header/Header';
+
 
 // TODO: Make GET request
 
@@ -7,10 +8,11 @@ class Admin extends Component {
   render() {
     return (
 			<div>
+				<Header />
 				<h2>HELLO ADMIN</h2>
 			</div>
     );
   }
 }
 
-export default withRouter(Admin);
+export default(Admin);
