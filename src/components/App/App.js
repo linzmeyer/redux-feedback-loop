@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 // import all components used in this component's render
@@ -20,11 +21,9 @@ class App extends Component {
 			url: '/feedback'
 		}).then( ( response ) => {
 			console.log( response.data );
-//			this.setState({
-//				artists: response.data,
-//			});
-//			const action = { type: 'GET_ALL_PIZZA', payload: response.data }
-//			this.props.dispatch(action);
+			// Store response in reducer
+			const action = { type: 'SET_ALL_FEEDBACK', payload: response.data }
+			this.props.dispatch( action );
 		});
 	}
 
@@ -73,4 +72,6 @@ class App extends Component {
   }
 }
 
-export default (App);
+const mapReduxStateToProps = reduxState => ({ reduxState });
+
+export default connect( mapReduxStateToProps )( App );
