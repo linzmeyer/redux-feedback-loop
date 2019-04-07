@@ -22,6 +22,15 @@ const feeling = ( state = 'unanswered', action ) => {
 	return state;
 }
 
+// the default value is FALSE
+const lastPage = ( state = 'false', action ) => {
+	if ( action.type === 'SET_LAST_PAGE' ) {
+		// change value to true;
+	state = action.payload;
+	}
+	return state;
+}
+
 const support = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_SUPPORT' ) {
 		return action.payload;
@@ -42,6 +51,7 @@ const storeInstance = createStore(
 	combineReducers({
 		comment,
 		feeling,
+		lastPage,
 		support,
 		understanding,
 	}),
