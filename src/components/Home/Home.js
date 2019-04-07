@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 class Home extends Component {
 
 	linkToView1 = () => {
-		alert( 'changing to view1' );
-		console.log(this.props);
 		this.props.history.push('/view1')
-		console.log(this.props);
 	}
 
 	linkToAdmin = () => {
