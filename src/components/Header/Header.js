@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import Navbar from '../Navbar/Navbar';
 import './Header.css';
 
 // Parents: <View1-5 />
 class Header extends Component {
 
-	renderHeader = () => {
-		if ( this.props.reduxState.lastPage === true ) {
-			return ( <h1>Feedback!</h1> );
+	renderHeader = ( view ) => {
+		if ( view === 'view5' ) {
+			return (
+				<div>
+					<h1>Feedback!</h1>
+					<h4><i>Thank You!</i></h4>
+				</div>
+			);
 		}
 		else {
 			return (
@@ -22,14 +27,11 @@ class Header extends Component {
   render() {
     return (
 			<header className="Header" >
-				{ this.renderHeader() }
+				{ this.renderHeader( this.props.currentView ) }
+				<Navbar currentView={ this.props.currentView } />
 			</header>
     );
   }
 }
 
-const mapReduxStateToProps = reduxState => ({
-    reduxState
-});
-
-export default connect( mapReduxStateToProps )( Header );
+export default( Header );
