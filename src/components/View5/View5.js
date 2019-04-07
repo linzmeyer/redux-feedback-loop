@@ -7,21 +7,11 @@ import Review from '../Review/Review';
 // Parent: <Route /> in <App />
 class View5 extends Component {
 
-	//Click handler for Return Home button
-	nextView = () => {
-		// Bring user back to home page
-		this.props.history.push( '/' );
-
-		// Create action for reducer
-		const action = {
-			type: 'SET_LAST_PAGE',
-			payload: false
-		}
+	componentDidMount = () => {
+		// Create action for lastPage reducer
+		const action = { type: 'SET_LAST_PAGE', payload: false };
 		// Dispatch action payload to reducer
 		this.props.dispatch( action );
-		// Change from current view to view2
-		this.props.history.push( '/' );
-
 	}
 
   render() {
@@ -29,7 +19,9 @@ class View5 extends Component {
 			<div>
 				<Header />
 				<h2>Thank You For Your Feedback!</h2>
-				<button onClick={ this.nextView } >Return Home</button>
+				<p>Click on a review item to change it.</p>
+				<p>When you are ready, click Submit.</p>
+				<Review postFeedback={this.props.postFeedback} />
 			</div>
     );
   }
