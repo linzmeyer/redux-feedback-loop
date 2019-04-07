@@ -8,15 +8,15 @@ import { logger } from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
-const feeling = ( state = 'unanswered', action ) => {
-	if ( action.type === 'SET_FEELING' ) {
+const comment = ( state = 'unanswered', action ) => {
+	if ( action.type === 'SET_COMMENT' ) {
 		return action.payload;
 	}
 	return state;
 }
 
-const understanding = ( state = 'unanswered', action ) => {
-	if ( action.type === 'SET_UNDERSTANDING' ) {
+const feeling = ( state = 'unanswered', action ) => {
+	if ( action.type === 'SET_FEELING' ) {
 		return action.payload;
 	}
 	return state;
@@ -29,13 +29,21 @@ const support = ( state = 'unanswered', action ) => {
 	return state;
 }
 
+const understanding = ( state = 'unanswered', action ) => {
+	if ( action.type === 'SET_UNDERSTANDING' ) {
+		return action.payload;
+	}
+	return state;
+}
+
 // This stores our reducers within the global scope of <Provider />
 const storeInstance = createStore(
 	// This puts all individual reducers into one object.
 	combineReducers({
+		comment,
 		feeling,
-		understanding,
 		support,
+		understanding,
 	}),
 	// This gives us the ability to track dispatches in client console.
 	applyMiddleware(logger),
