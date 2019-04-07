@@ -6,10 +6,15 @@ import './Header.css';
 class Header extends Component {
 
 	renderHeader = ( view ) => {
-		if ( view === 'view5' ) {
+		if ( view === 'admin' ) {
+			return ( <h3>ADMIN</h3> );
+		}
+		else if ( view === 'home' ) {
+			return ( <h3>HOME</h3> );
+		}
+		else if ( view === 'view5' ) {
 			return (
 				<div>
-					<h1>Feedback!</h1>
 					<h4><i>Thank You!</i></h4>
 				</div>
 			);
@@ -17,7 +22,6 @@ class Header extends Component {
 		else {
 			return (
 				<div>
-					<h1>Feedback!</h1>
 					<h4><i>Don't forget it!</i></h4>
 				</div>
 			);
@@ -27,6 +31,7 @@ class Header extends Component {
   render() {
     return (
 			<header className="Header" >
+				<h1>Feedback!</h1>
 				{ this.renderHeader( this.props.currentView ) }
 				<Navbar currentView={ this.props.currentView } />
 			</header>

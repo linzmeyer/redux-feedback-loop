@@ -13,9 +13,24 @@ import View5 from '../View5/View5';
 
 class App extends Component {
 
+	// GET all feedback and dispatch to reducer for easy access
+	getAllFeedback = () => {
+		axios({
+			method: 'GET',
+			url: '/feedback'
+		}).then( ( response ) => {
+			console.log( response.data );
+//			this.setState({
+//				artists: response.data,
+//			});
+//			const action = { type: 'GET_ALL_PIZZA', payload: response.data }
+//			this.props.dispatch(action);
+		});
+	}
+
 	// POST feedback
 	postFeedback = ( feedbackData ) => {
-		console.log('adding new feedback', feedbackData);
+		console.log( 'adding new feedback', feedbackData );
 		// POST request
 		axios({
 			method: 'POST',
@@ -23,12 +38,12 @@ class App extends Component {
 			data: feedbackData,
 		})
 		.then( (response) => {
-			console.log('POST successful!');
-			console.log(response.data)
+			console.log( 'POST successful!' );
+			console.log( response.data )
 		})
-		.catch( (error) => {
-			console.log('Error with post request', error);
-			alert('Sorry, could not add the feedback. check console.');
+		.catch( ( error ) => {
+			console.log( 'Error with post request', error );
+			alert( 'Sorry, could not add the feedback. check console.' );
 		})
 	}
 
@@ -36,7 +51,7 @@ class App extends Component {
     return (
 			// This gives these components react routes for SPA routing
 			// Route for view5 is passing POST request to <View5 /> so it can
-			//   be passed to
+			// be passed to the submit button in <Review />.
       <Router>
       	<Route exact path='/admin' component={ Admin } />
 				<Route exact path='/' component={ Home } />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // This component will render every time a props value changes
 class Review extends Component {
@@ -50,6 +51,13 @@ class Review extends Component {
 	postFeedback = () => {
 		// Make post request using reducer that conatains all review values
 		this.props.postFeedback( this.props.reduxState.review );
+
+		// Reset all reduce values back to 'unanswered' for conditional rendering
+		// and Review component reset
+		const action = { type: 'RESET-REVIEW', payload: { answer: 'unanswered' } }
+		this.props.dispatch( action );
+		// Route user back to home view
+		this.props.history.push( '/' );
 	}
 
   render() {
@@ -68,4 +76,5 @@ class Review extends Component {
 
 const mapReduxStateToProps = reduxState => ({ reduxState });
 
-export default connect( mapReduxStateToProps )( Review );
+// This uses connect for redux and withRouter for react routing.
+export default connect( mapReduxStateToProps )(withRouter( Review ));

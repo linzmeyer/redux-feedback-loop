@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 
+import Header from '../Header/Header';
+
 class Home extends Component {
-
-	linkToView1 = () => {
-		this.props.history.push('/view1')
-	}
-
-	linkToAdmin = () => {
-		this.props.history.push('/admin')
-	}
 
   render() {
     return (
 			<div>
-				<nav>
-					<div className='navbar' onClick={ this.linkToView1 } >Leave New Feedback</div>
-					<div className='navbar' onClick={ this.linkToAdmin } >Admin</div>
-				</nav>
+				<Header currentView="home" />
+				<h2>Take a moment to reflect on how we're doing here at prime.</h2>
+				<p>Use the nav bar above to get started.</p>
 			</div>
     );
   }

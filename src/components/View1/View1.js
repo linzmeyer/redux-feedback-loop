@@ -55,8 +55,6 @@ class View1 extends Component {
   }
 }
 
-const mapReduxStateToProps = reduxState => ({
-	reduxState
-});
+const mapReduxStateToProps = reduxState => ({ reduxState });
 
 export default connect( mapReduxStateToProps )( View1 );

@@ -12,6 +12,9 @@ const comment = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_COMMENT' ) {
 		return action.payload;
 	}
+	else if ( action.type === 'RESET-REVIEW' ) {
+		return action.payload.answer;
+	}
 	return state;
 }
 
@@ -19,22 +22,19 @@ const feeling = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_FEELING' ) {
 		return action.payload;
 	}
-	return state;
-}
-
-// the default value is FALSE
-const lastPage = ( state = 'false', action ) => {
-	if ( action.type === 'SET_LAST_PAGE' ) {
-		// change value to true;
-	state = action.payload;
+	else if ( action.type === 'RESET-REVIEW' ) {
+		return action.payload.answer;
 	}
 	return state;
 }
 
 // Holds the values of all feedback values
-const review = ( state = {}, action ) => {
+const review = ( state = { answer: 'unanswered' }, action ) => {
 	if ( action.type === 'SET_REVIEW' ) {
-		state = action.payload
+		state = action.payload;
+	}
+	else if ( action.type === 'RESET-REVIEW' ) {
+		state = action.payload;
 	}
 	return state;
 }
@@ -43,12 +43,18 @@ const support = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_SUPPORT' ) {
 		return action.payload;
 	}
+	else if ( action.type === 'RESET-REVIEW' ) {
+		return action.payload.answer;
+	}
 	return state;
 }
 
 const understanding = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_UNDERSTANDING' ) {
 		return action.payload;
+	}
+	else if ( action.type === 'RESET-REVIEW' ) {
+		return action.payload.answer;
 	}
 	return state;
 }
@@ -59,7 +65,6 @@ const storeInstance = createStore(
 	combineReducers({
 		comment,
 		feeling,
-		lastPage,
 		review,
 		support,
 		understanding,
