@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
-//import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Header from '../Header/Header';
 import Review from '../Review/Review';
 
+import validate from '../../DRY_Functions/validate';
+
+// Parent: <Route /> in <App />
 class View1 extends Component {
 
 	state = {
-		newFeedback: {
 			feelingRating: null
-		}
 	}
 
-	handleChange = (e) => {
-		// update value of feelingRating to match value of inputbox
-		this.setState({
-			newFeedback: { [e.target.name]: e.target.value }
-		})
-		console.log(this.state.newFeedback.feelingRating);
-		console.log(e.target.value);
+	// update value of feelingRating to match value of inputbox
+	handleChange = ( e ) => {
+		this.setState({ [ e.target.name ]: e.target.value })
 	}
 
 	//Click handler for Next button
 	nextView = () => {
-		console.log(this.state.newFeedback.feelingRating);
-		// user input validation
-		if (this.state.newFeedback.feelingRating === null) {
+		console.log( 'validating:', this.state.feelingRating );
+		// User input validation (returns T/F value)
+		let isValidInput = validate( this.state.feelingRating, 'RATING' );
+		if ( isValidInput === false ) {
 			return;
 		}
-		// TODO: dispatch feelingRating to reducer
-		this.props.history.push('/view2');
+		// Create action for reducer
+		const action = { type: 'SET_FEELING', payload: this.state.feelingRating }
+		// Dispatch action payload to reducer
+		this.props.dispatch( action );
+		// Change from current view to view2
+		this.props.history.push( '/view2' );
 	}
 
   render() {
-		console.log('render');
     return (
       <div>
       	<Header />
@@ -41,18 +42,21 @@ class View1 extends Component {
       	<label>Feeling?</label>
 				<input
 					placeholder="1-5"
-					min={1}
-					max={5}
+					min={ 1 }
+					max={ 5 }
 					type="number"
 					name="feelingRating"
-					onChange={this.handleChange}
+					onChange={ this.handleChange }
 				></input>
-    		<button onClick={this.nextView} >Next</button>
+    		<button onClick={ this.nextView } >Next</button>
     		<Review />
       </div>
     );
   }
 }
 
-// TODO: import connect and use here
-export default( View1 );
+const mapReduxStateToProps = reduxState => ({
+	reduxState
+});
+
+export default connect( mapReduxStateToProps )( View1 );
