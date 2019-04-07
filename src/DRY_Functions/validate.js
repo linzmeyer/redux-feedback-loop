@@ -5,6 +5,7 @@
 */
 function validate(input, type) {
 	console.log( 'in DRY validate' );
+	let message1 = 'Please enter a number in the range 1 - 5.';
 	/*
 	if input type is a number rating
 	- Checks if input is null
@@ -13,10 +14,11 @@ function validate(input, type) {
 	if ( type === 'RATING' ) {
 		// if null
 		if ( input === null ) {
+			alert( message1 );
 			return false;
 		} // if less than 1 or greater than 5
 		else if ( input < 1 || input > 5 ) {
-			alert( 'Please enter a number in the range 1 - 5.' );
+			alert( message1 );
 			return false;
 		} // if input passed validation
 		else {
