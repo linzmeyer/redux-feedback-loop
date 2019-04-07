@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Admin from '../Admin/Admin';
 import Home from '../Home/Home';
@@ -12,11 +12,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-      	<Route exact path='/admin' component={Admin} />
-				<Route exact path='/' component={Home} />
-      	<Route exact path='/view1' component={View1} />
-      	<Route exact path='/view2' component={View2} />
-      	<Route exact path='/view3' component={View3} />
+      	<Route exact path='/admin' component={ Admin } />
+				<Route exact path='/' component={ Home } />
+      	<Route exact path='/view1' component={ View1 } />
+      	<Route exact path='/view2' component={ View2 } />
+      	<Route exact path='/view3' component={ View3 } />
       </Router>
     );
   }
