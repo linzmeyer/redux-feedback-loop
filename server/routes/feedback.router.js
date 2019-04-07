@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   let feedback = req.body;
   console.log( 'Adding feedback', feedback );
 	let sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
-  pool.query(sqlText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment])
+  pool.query(sqlText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])
     .then( (response) => {
       res.sendStatus(201);
     })
