@@ -8,6 +8,14 @@ import { logger } from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
+// allFeedback should be an array of objects sent from server
+const allFeedback = ( state = null, action ) => {
+	if ( action.type === 'SET_ALL_FEEDBACK' ) {
+		return action.payload
+	}
+	return state;
+}
+
 const comment = ( state = 'unanswered', action ) => {
 	if ( action.type === 'SET_COMMENT' ) {
 		return action.payload;
@@ -63,6 +71,7 @@ const understanding = ( state = 'unanswered', action ) => {
 const storeInstance = createStore(
 	// This puts all individual reducers into one object.
 	combineReducers({
+		allFeedback,
 		comment,
 		feeling,
 		review,
