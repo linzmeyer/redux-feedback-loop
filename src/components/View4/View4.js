@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Header from '../Header/Header';
 import Review from '../Review/Review';
+import './View4.css';
 
 import validate from '../../DRY_Functions/validate';
 
@@ -43,18 +44,19 @@ class View4 extends Component {
 
   render() {
     return (
-			<div>
+			<div className="View4" >
 				<Header />
 				<h2>Any comments you want to leave?</h2>
-      	<label>Comments</label>
+      	<label className="comments" >Comments</label>
 				<textarea
 					placeholder="What's up?"
 					min={ 1 }
 					max={ 5 }
 					name="commentDetails"
 					onChange={ this.handleChange }
+					className="form-control"
 				></textarea>
-				<button onClick={ this.nextView } >Next</button>
+				<button onClick={ this.nextView } className="btn btn-primary next text-center" >Next</button>
 				<Review />
 			</div>
     );

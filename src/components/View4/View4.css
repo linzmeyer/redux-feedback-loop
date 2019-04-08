@@ -1,0 +1,17 @@
+.View4 {
+	text-align: center;
+}
+
+.in {
+	display: inline-block;
+	text-align: center;
+	width: 50%;
+	justify-content: flex-end;
+}
+
+.comments {
+	display: block;
+	line-height: 30px;
+	text-align: center;
+}
+

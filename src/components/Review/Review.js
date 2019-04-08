@@ -40,11 +40,11 @@ class Review extends Component {
 		// if feedback is completed
 		if ( feedbackIsReady === true ) {
 			// Render clickable button to make POST request
-			return ( <button onClick={ this.postFeedback } >Submit</button> );
+			return ( <button onClick={ this.postFeedback } className="btn btn-success" >Submit</button> );
 		}// if feedback isn't completed
 		else {
 			// Render faded, disabled button
-			return <button disabled="disabled" >Incomplete</button>
+			return <button disabled="disabled" className="btn btn-dark" >Incomplete</button>
 		}
 	}
 
@@ -62,7 +62,7 @@ class Review extends Component {
 
   render() {
     return (
-			<div>
+			<div className="card">
 				<h2>Review Your Feedback</h2>
 				<p>Feeling: { this.props.reduxState.feeling }</p>
 				<p>Understanding: { this.props.reduxState.understanding }</p>
