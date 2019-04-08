@@ -30,7 +30,7 @@ class Admin extends Component {
 			<div>
 				<Header currentView="admin" />
 				<h2>Here's how your students are doing</h2>
-				<table class="table table-hover" >
+				<table className="table table-hover" >
 					<thead>
 						<tr>
 							<th scope="col" >Feeling</th>

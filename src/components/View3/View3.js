@@ -40,18 +40,21 @@ class View3 extends Component {
 
   render() {
     return (
-			<div>
+			<div className="card-body" >
 				<Header />
 				<h2>How well are you being supported?</h2>
       	<label>Support?</label>
-				<input
-					placeholder="1-5"
-					min={ 1 }
-					max={ 5 }
-					type="range"
-					name="supportRating"
-					onChange={ this.handleChange }
-				></input>
+      	<div>
+      		<div>1 -- 2 -- 3 -- 4 -- 5</div>
+					<input
+						placeholder="1-5"
+						min={ 1 }
+						max={ 5 }
+						type="range"
+						name="supportRating"
+						onChange={ this.handleChange }
+					></input>
+      	</div>
 				<button onClick={ this.nextView } className="btn btn-primary" >Next</button>
 				<Review />
 			</div>

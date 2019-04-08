@@ -51,6 +51,7 @@ class View2 extends Component {
 					type="number"
 					name="understandingRating"
 					onChange={this.handleChange}
+					className="in"
 				></input>
 				<button onClick={this.nextView} className="btn btn-primary" >Next</button>
 				<Review />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './Review.css';
 
 // This component will render every time a props value changes
 class Review extends Component {
@@ -40,7 +41,7 @@ class Review extends Component {
 		// if feedback is completed
 		if ( feedbackIsReady === true ) {
 			// Render clickable button to make POST request
-			return ( <button onClick={ this.postFeedback } className="btn btn-success" >Submit</button> );
+			return ( <button onClick={ this.postFeedback } className="btn btn-success submit" >Submit</button> );
 		}// if feedback isn't completed
 		else {
 			// Render faded, disabled button
@@ -62,7 +63,7 @@ class Review extends Component {
 
   render() {
     return (
-			<div className="card">
+			<div className="card-body">
 				<h2>Review Your Feedback</h2>
 				<p>Feeling: { this.props.reduxState.feeling }</p>
 				<p>Understanding: { this.props.reduxState.understanding }</p>

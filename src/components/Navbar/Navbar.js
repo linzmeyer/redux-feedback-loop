@@ -83,10 +83,6 @@ class NavBar extends Component {
 					<div className="route" onClick={ this.routeToView3 } >Support</div>
 					<div className="route" onClick={ this.routeToView4 } >Comments</div>
 					<div className="route" onClick={ this.routeToView5 } >Submit</div>
-					<div className="progress">
-						  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-
-					</div>
 				</div>
 			);
 		}

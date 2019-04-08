@@ -47,6 +47,7 @@ class View1 extends Component {
 					type="number"
 					name="feelingRating"
 					onChange={ this.handleChange }
+					className="in"
 				></input>
     		<button onClick={ this.nextView } className="btn btn-primary" >Next</button>
     		<Review />
