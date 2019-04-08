@@ -4,20 +4,25 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 
 
-// TODO: Make GET request
-
+// Parent: <Route /> in <App />
 class Admin extends Component {
-
-	componentDidMount = () => {
-		this.props.getAllFeedback();
-	}
 
 	renderTableRow = () => {
 		console.log(this.props.reduxState.allFeedback);
 		return(
-			<tr>
-
-			</tr>
+			this.props.reduxState.allFeedback.map(
+				feedbackItem => (
+					<tr key={ feedbackItem.id }>
+						<td>{feedbackItem.feeling}</td>
+						<td>{feedbackItem.understanding}</td>
+						<td>{feedbackItem.support}</td>
+						<td>{feedbackItem.comments}</td>
+						<td>{feedbackItem.date}</td>
+						<td><button>Flag</button></td>
+						<td><button>Delete</button></td>
+					</tr>
+				)
+			)
 		);
 	}
 
@@ -25,7 +30,7 @@ class Admin extends Component {
     return (
 			<div>
 				<Header currentView="admin" />
-				<h2>HELLO ADMIN</h2>
+				<h2>Here's how your students are doing</h2>
 				<table>
 					<thead>
 						<tr>
@@ -38,7 +43,7 @@ class Admin extends Component {
 							<th>Delete</th>
 						</tr>
 					</thead>
-					<tbody id="viewKoalas">
+					<tbody>
 						{ this.renderTableRow() }
 					</tbody>
 				</table>

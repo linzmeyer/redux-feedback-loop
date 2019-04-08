@@ -4,6 +4,11 @@ import Header from '../Header/Header';
 
 class Home extends Component {
 
+	componentDidMount = () => {
+		// call this get request to store data in reducer on home view mount
+		this.props.getAllFeedback();
+	}
+
   render() {
     return (
 			<div>

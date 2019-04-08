@@ -45,7 +45,7 @@ class NavBar extends Component {
 		// if current view is admin view
 		if ( view === 'admin' ) {
 			return (
-				<div className="Navbar" onClick={ this.routeToHome } >Back To Home</div>
+				<div className="route" onClick={ this.routeToHome } >Back To Home</div>
 			);
 		}
 		// if current view is home view
@@ -57,8 +57,8 @@ class NavBar extends Component {
 				// Render option to continue feedback
 				return (
 					<div>
-						<div className="Navbar" onClick={ this.routeToAdmin } >Admin</div>
-						<div className="Navbar" onClick={ this.routeToView1 } >Continue Feedback</div>
+						<div className="route" onClick={ this.routeToAdmin } >Admin</div>
+						<div className="route" onClick={ this.routeToView1 } >Continue Feedback</div>
 					</div>
 				);
 			}
@@ -67,8 +67,8 @@ class NavBar extends Component {
 				// Render render option to Start Feedback
 				return (
 					<div>
-						<div className="Navbar" onClick={ this.routeToAdmin } >Admin</div>
-						<div className="Navbar" onClick={ this.routeToView1 } >Start Feedback</div>
+						<div className="route" onClick={ this.routeToAdmin } >Admin</div>
+						<div className="route" onClick={ this.routeToView1 } >Start Feedback</div>
 					</div>
 				);
 			}
@@ -77,12 +77,12 @@ class NavBar extends Component {
 		else {
 			return (
 				<div>
-					<div className="Navbar" onClick={ this.routeToHome } >Home</div>
-					<div className="Navbar" onClick={ this.routeToView1 } >Feeling</div>
-					<div className="Navbar" onClick={ this.routeToView2 } >Understanding</div>
-					<div className="Navbar" onClick={ this.routeToView3 } >Support</div>
-					<div className="Navbar" onClick={ this.routeToView4 } >Comments</div>
-					<div className="Navbar" onClick={ this.routeToView5 } >Submit</div>
+					<div className="route" onClick={ this.routeToHome } >Home</div>
+					<div className="route" onClick={ this.routeToView1 } >Feeling</div>
+					<div className="route" onClick={ this.routeToView2 } >Understanding</div>
+					<div className="route" onClick={ this.routeToView3 } >Support</div>
+					<div className="route" onClick={ this.routeToView4 } >Comments</div>
+					<div className="route" onClick={ this.routeToView5 } >Submit</div>
 				</div>
 			);
 		}
