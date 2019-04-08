@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Header from '../Header/Header';
 
 // Parent: <Route /> in <App />
 class Admin extends Component {
 
+	// DELETE request deletes item from database
+  deleteFeedbackItem = ( id ) => {
+    axios({
+      method: 'Delete',
+      url: `/feedback/delete/${id}`,
+    })
+    .then( ( response ) => {
+      // getting the new list will trigger the page to render again.
+      this.props.getList();
+    })
+    .catch( (error) => {
+      console.log('Error deleting data', error);
+      alert('Sorry, could not delete the item. Check console.');
+    })
+  }
+
 	renderTableRow = () => {
-		console.log(this.props.reduxState.allFeedback);
 		return(
 			this.props.reduxState.allFeedback.map(
 				feedbackItem => (
@@ -17,8 +33,17 @@ class Admin extends Component {
 						<td>{feedbackItem.support}</td>
 						<td>{feedbackItem.comments}</td>
 						<td>{feedbackItem.date}</td>
-						<td><button className="btn btn-outline-warning">Flag</button></td>
-						<td><button className="btn btn-danger">Delete</button></td>
+						<td>
+							<button
+								className="btn btn-outline-warning"
+							>Flag</button>
+						</td>
+						<td>
+							<button
+								onClick={ this.deleteFeedbackItem }
+								className="btn btn-danger"
+							>Delete</button>
+						</td>
 					</tr>
 				)
 			)

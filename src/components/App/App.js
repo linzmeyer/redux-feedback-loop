@@ -38,7 +38,7 @@ class App extends Component {
 		})
 		.then( (response) => {
 			console.log( 'POST successful!' );
-			console.log( response.data )
+			console.log( response.data );
 			this.getAllFeedback();
 		})
 		.catch( ( error ) => {
@@ -49,11 +49,13 @@ class App extends Component {
 
   render() {
     return (
-			// This gives these components react routes for SPA routing
-			// Route for view5 is passing POST request to <View5 /> so it can
-			// be passed to the submit button in <Review />.
+			// This gives these components react routes for SPA routing.
+			// Route with props are passing requests so they can handle requests from
+			// components that use them.
       <Router>
-      	<Route exact path='/admin' component={ Admin } />
+      	<Route exact path='/admin'
+					render={ (props) => <Admin {...props} getAllFeedback={this.getAllFeedback}/> }
+      	/>
 				<Route exact path='/'
 					render={ (props) => <Home {...props} getAllFeedback={this.getAllFeedback}/> }
 				/>
